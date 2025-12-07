@@ -1,118 +1,481 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creative Resume Web Page</title>
+    <title>Harshad Gholap - Portfolio</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f2f2f2;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-        .resume {
-            max-width: 850px;
-            background: #ffffff;
-            margin: 40px auto;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
-        header {
-            text-align: center;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #cccccc;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 36px;
-            color: #333333;
-        }
-        header p {
-            font-size: 18px;
-            margin: 5px 0;
-            color: #555555;
-        }
-        .section {
-            margin-top: 30px;
-        }
-        .section h2 {
-            font-size: 24px;
-            color: #444444;
-            border-left: 5px solid #0077ff;
-            padding-left: 10px;
-        }
-        .section p, .section li {
-            font-size: 16px;
-            color: #444444;
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
             line-height: 1.6;
         }
-        ul {
-            margin: 10px 0 0 20px;
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        .skills span {
-            display: inline-block;
-            background: #0077ff;
-            color: #ffffff;
-            padding: 6px 12px;
+
+        header {
+            background: rgba(102, 126, 234, 0.95);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffd700;
+        }
+
+        .dark-mode-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            padding: 8px 20px;
             border-radius: 20px;
-            margin: 5px 5px 0 0;
-            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s;
         }
-        footer {
+
+        .dark-mode-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .hero {
+            background: white;
+            border-radius: 20px;
+            padding: 60px;
+            margin: 40px auto;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .hero-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            flex-shrink: 0;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #764ba2;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        section {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            margin: 40px auto;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 36px;
+            color: #667eea;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .interests-grid, .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .interest-card, .skill-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 16px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .interest-card:hover, .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .skill-card {
+            background: white;
+            border: 2px solid #667eea;
+            color: #667eea;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 40px 20px;
+        }
+
+        .skill-icon {
+            width: 80px;
+            height: 80px;
+        }
+
+        .skill-name {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 10px;
+            transition: width 0.3s;
+        }
+ .interests-grid, .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .interest-card, .skill-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 16px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .interest-card:hover, .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .contact-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .email-section {
             text-align: center;
             margin-top: 30px;
-            padding-top: 15px;
-            border-top: 2px solid #cccccc;
-            color: #666666;
+        }
+
+        .email-section p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .email-section a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .email-section a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
             font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                padding: 30px;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 32px;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            section {
+                padding: 30px 20px;
+            }
+
+            .interests-grid, .skills-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="resume">
-        <header>
-            <h1>Your Name</h1>
-            <p>Web Developer | Designer | Programmer</p>
-            <p>Email: yourname@email.com | Phone: 9876543210</p>
-        </header><section class="section">
-        <h2>About Me</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sit amet purus vitae turpis consequat commodo.</p>
-    </section>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Harshad Gholap</div>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#interests">Interests</a></li>
+                    <li><a href="#skills">My Skills</a></li>
+                   <li><a href="#Project">Project</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                   
+                </ul>
+                <button class="dark-mode-btn">Dark Mode</button>
+            </nav>
+        </div>
+    </header>
 
-    <section class="section">
-        <h2>Education</h2>
-        <ul>
-            <li><strong>Bachelor of Technology (B.Tech)</strong> - Computer Science - XYZ University (2021 - 2025)</li>
-            <li><strong>Higher Secondary (12th)</strong> - ABC College (2020)</li>
-        </ul>
-    </section>
+    <div class="container">
+        <div class="hero" id="home">
+            <div class="hero-image">
+                <img src="Passport Photo.jpg" alt="Harshad Gholap">
+            </div>
+            <div class="hero-content">
+                <h1>Harshad Gholap</h1>
+                <p>Electrical Engineering Student • AI Enthusiast</p>
+                <div class="btn-group">
+                    <a href="C:\Users\akash\OneDrive\Documents\Harshad Work.docx" class="btn btn-primary">Download Resume</a>
+                  
+                </div>
+            </div>
+        </div>
 
-    <section class="section skills">
-        <h2>Skills</h2>
-        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span><span>React</span>
-    </section>
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>I am <strong>Harshad Gholap</strong>, a first-year Electrical Engineering student passionate about technology, innovation, and improving myself everyday. I enjoy working with circuits, automation, embedded systems, and learning new tools.</p>
+                <p style="margin-top: 20px;">My goal is to leverage cutting-edge technologies to solve real-world problems and contribute to advancements in electrical engineering and artificial intelligence. I believe in continuous learning and staying updated with the latest trends in technology.</p>
+            </div>
+        </section>
 
-    <section class="section">
-        <h2>Projects</h2>
-        <ul>
-            <li><strong>Portfolio Website:</strong> Personal portfolio built using HTML, CSS, and JavaScript.</li>
-            <li><strong>Weather App:</strong> Built using API to fetch weather details dynamically.</li>
-        </ul>
-    </section>
+        <section id="interests">
+            <h2>My Interests</h2>
+            <div class="interests-grid">
+                <div class="interest-card">IoT (Internet of Things)</div>
+                <div class="interest-card">Artificial Intelligence</div>
+                <div class="interest-card">Embedded Systems</div>
+                <div class="interest-card">Electrical Machines</div>
+                <div class="interest-card">Geopolitics</div>
+                <div class="interest-card">Robotics & Automation</div>
+            </div>
+        </section>
 
-    <section class="section">
-        <h2>Experience</h2>
-        <ul>
-            <li><strong>Web Developer Intern</strong> at ABC Tech Solutions (2024 - Present)</li>
-            <li>Contributed to UI/UX design and frontend development of client projects.</li>
-        </ul>
-    </section>
+        <section id="skills">
+            <h2>My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <svg class="skill-icon" viewBox="0 0 128 128">
+                        <path fill="#E44D26" d="M19.037 113.876L9.032 1.661h109.936l-10.016 112.198-45.019 12.48z"></path>
+                        <path fill="#F16529" d="M64 116.8l36.378-10.086 8.559-95.878H64z"></path>
+                    </svg>
+                    <div class="skill-name">HTML</div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <svg class="skill-icon" viewBox="0 0 128 128">
+                        <path fill="#1572B6" d="M18.814 114.123L8.76 1.352h110.48l-10.064 112.754-45.243 12.543-45.119-12.526z"></path>
+                        <path fill="#33A9DC" d="M64.001 117.062l36.559-10.136 8.601-96.354h-45.16v106.49z"></path>
+                    </svg>
+                    <div class="skill-name">CSS</div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <svg class="skill-icon" viewBox="0 0 128 128">
+                        <path fill="#FFD43B" d="M49.33 62h29.159C86.606 62 93 55.132 93 46.981V19.183c0-7.912-6.632-13.856-14.555-15.176-5.014-.835-10.195-1.215-15.187-1.191-4.99.023-9.612.448-13.805 1.191C37.098 6.188 35 10.758 35 19.183V30h29v4H23.776c-8.484 0-15.914 5.108-18.237 14.811-2.681 11.12-2.8 17.919 0 29.53C7.614 86.983 12.569 93 21.054 93H31V79.952C31 70.315 39.428 62 49.33 62zm-1.838-39.11c-3.026 0-5.478-2.479-5.478-5.545 0-3.079 2.451-5.581 5.478-5.581 3.015 0 5.479 2.502 5.479 5.581-.001 3.066-2.465 5.545-5.479 5.545zm74.789 25.921C120.183 40.363 116.178 34 107.682 34H97v12.981C97 57.031 88.206 65 78.489 65H49.33C41.342 65 35 72.326 35 80.326v27.8c0 7.91 6.745 12.564 14.462 14.834 9.242 2.717 17.994 3.208 29.051 0C85.862 120.831 93 116.549 93 108.126V97H64v-4h43.682c8.484 0 11.647-5.776 14.599-14.66 3.047-9.145 2.916-17.799 0-29.529zm-41.955 55.606c3.027 0 5.479 2.479 5.479 5.547 0 3.076-2.451 5.579-5.479 5.579-3.015 0-5.478-2.502-5.478-5.579 0-3.068 2.463-5.547 5.478-5.547z"></path>
+                    </svg>
+                    <div class="skill-name">Python</div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <svg class="skill-icon" viewBox="0 0 128 128">
+                        <path fill="#659AD3" d="M115.4 30.7L67.1 2.9c-.8-.5-1.9-.7-3.1-.7-1.2 0-2.3.3-3.1.7l-48 27.9c-1.7 1-2.9 3.5-2.9 5.4v55.7c0 1.1.2 2.4 1 3.5l106.8-62c-.6-1.2-1.5-2.1-2.4-2.7z"></path>
+                        <path fill="#03599C" d="M10.7 95.3c.5.8 1.2 1.5 1.9 1.9l48.2 27.9c.8.5 1.9.7 3.1.7 1.2 0 2.3-.3 3.1-.7l48-27.9c1.7-1 2.9-3.5 2.9-5.4V36.1c0-.9-.1-1.9-.6-2.8l-106.6 62z"></path>
+                        <path fill="#fff" d="M85.3 76.1C81.1 83.5 73.1 88.5 64 88.5c-13.5 0-24.5-11-24.5-24.5s11-24.5 24.5-24.5c9.1 0 17.1 5 21.3 12.5l13-7.5c-6.8-11.9-19.6-20-34.3-20-21.8 0-39.5 17.7-39.5 39.5s17.7 39.5 39.5 39.5c14.6 0 27.4-8 34.2-19.8l-12.9-7.6z"></path>
+                    </svg>
+                    <div class="skill-name">C Programming</div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 75%;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+<section id="Project">
+            <h2>Project</h2>
+            <div class="interests-grid">
+                <div class="interest-card">
+<a href="BEE CIA activity.docx"/>BEE</div>
+                <div class="interest-card">
+<a href="html"/>IT</div>
+                <div class="interest-card">
+<a href="Department_of_Electrical_Engineering FINAL  1.pptx"/>Chemistry</div>
+            
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <div class="contact-grid">
+                <div class="contact-icon" title="LinkedIn">
+<a href="https://www.linkedin.com/in/harshad-gholap-a88103307?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"/>💼</div>
+              <div class="contact-icon" title="Instagram">
+<a href="https://www.instagram.com/harshad_gholap_230407?igsh=NjFsaHVha2gxcmgw"/>📸</div>
+                <div class="contact-icon" title="Twitter">
+<a href="https://www.instagram.com/harshad_gholap_230407?igsh=NjFsaHVha2gxcmgw"/>🐦</div>
+                <div class="contact-icon" title="Email">
+<a href="harshadgholap2025@gmail.com"/>📧</div>
+                <div class="contact-icon" title="Facebook">🌐</div>
+            </div>
+   <div class="email-section">
+                <p>Email: <a href="mailto:harshadgholap2025@gmail.com">harshadgholap2025@gmail.com</a></p>
+            </div>
+        </section>
+    </div>    
 
     <footer>
-        &copy; 2025 Your Name. All rights reserved.
+        <p>&copy; 2024 Harshad Gholap. All Rights Reserved. | Designed with passion for innovation</p>
     </footer>
-</div>
-
 </body>
 </html>
